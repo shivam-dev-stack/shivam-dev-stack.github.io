@@ -14,12 +14,12 @@ As I move through my Master’s in Data Science and handle **7+ active repositor
 ---
 
 ## 🛠️ The Tech Stack
-| Category | Tools |
-| :--- | :--- |
+| Category      | Tools                                           |
+|:--------------|:------------------------------------------------|
 | **Languages** | Python (AI/ML), Go (High-performance backend), Node.js |
-| **Databases** | PostgreSQL (Managed via Docker), SQLModel |
-| **AI/ML** | BERT (NLP), ONNX (Inference), FastAPI |
-| **DevOps** | Docker Desktop, Git CLI, Miniconda |
+| **Databases** | PostgreSQL (Managed via Docker), SQLModel       |
+| **AI/ML**     | BERT (NLP), ONNX (Inference), FastAPI           |
+| **DevOps**    | Docker Desktop, Git CLI, Miniconda              |
 
 ---
 
@@ -30,16 +30,15 @@ I use **Docker Desktop with WSL integration** to keep my machine "clean."
 
 ---
 
-## 📈 2026 Momentum: 7 Repositories & Counting
+## 📈 2026 Momentum: 5 Repositories & Counting
 This setup has allowed me to contribute to 7 major projects already this year:
-1. **AI Resume Analyzer:** Node.js + Puppeteer for PDF generation.
+1. **AI Resume Analyzer:** Node.js + Puppeteer for PDF generation. **private for now**
 2. **Customer Feedback Intelligence:** BERT-powered analysis with a FastAPI/ONNX backend.
-3. **Knowledge Bot:** Specialized AI agent for document processing.
-4. **House Price Prediction:** Re-architected legacy ML project.
-5. **Heart Disease Predictor:** Classification model with optimized SQL features.
-6. **QuickChefAI:** GenAI-driven recipe engine.
-7. **[Project 7]:** Modernizing legacy code into Go for performance.
+3. **Knowledge Bot:** Specialized AI agent for searching answer on internet.
+4. **House Price Prediction:** full stack ML project.
+5. **Heart Disease Predictor:** Classification model.
+
 
 ---
 
-## 🐚
+
