@@ -1,4 +1,3 @@
-# shivam-dev-stack.github.io
 # My 2026 Dev Setup: The "Smart Monolith" Environment
 > **Location:** WSL 2 (Ubuntu) on Windows 11  
 > **Focus:** Data Science, ML Ops, and Scalable Backends
