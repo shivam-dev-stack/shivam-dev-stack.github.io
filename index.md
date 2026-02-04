@@ -14,12 +14,12 @@ As I move through my Master’s in Data Science and handle **7+ active repositor
 ---
 
 ## 🛠️ The Tech Stack
-| Category      | Tools                                           |
-|:--------------|:------------------------------------------------|
-| **Languages** | Python (AI/ML), Go (High-performance backend), Node.js |
-| **Databases** | PostgreSQL (Managed via Docker), SQLModel       |
-| **AI/ML**     | BERT (NLP), ONNX (Inference), FastAPI           |
-| **DevOps**    | Docker Desktop, Git CLI, Miniconda              |
+| Category | Tools |
+| :--- | :--- |
+| Languages | Python (AI/ML), Go (High-performance backend), Node.js |
+| Databases | PostgreSQL (Managed via Docker), SQLModel |
+| AI/ML | BERT (NLP), ONNX (Inference), FastAPI |
+| DevOps | Docker Desktop, Git CLI, Miniconda |
 
 ---
 
