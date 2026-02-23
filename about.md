@@ -1,7 +1,7 @@
 ---
-name: Your Name
-initials: YN
-role: Data Scientist & ML Engineer
+name: Shivam Pratap Singh
+initials: SPS
+role: Data Science Practitioner
 ---
 
 I'm a data scientist who likes to **understand things from first principles** rather than treating models as black boxes. I've spent the last few years working at the intersection of machine learning, statistical inference, and software engineering.

@@ -7,6 +7,8 @@
 
 // ── UTILITIES ─────────────────────────────────────────────────────────────
 
+const BASE = '';
+
 async function fetchText(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
@@ -60,7 +62,7 @@ function showPage(name, postFile) {
 async function loadPostList() {
   const container = document.getElementById('posts-list');
   try {
-    const posts = await fetchJSON('posts.json');
+    const posts = await fetchJSON(`${BASE}/posts.json`);
     if (!posts.length) {
       container.innerHTML = '<div class="loading">No posts yet.</div>';
       return;
@@ -89,7 +91,7 @@ async function loadPost(file) {
   const container = document.getElementById('post-content');
   container.innerHTML = '<div class="loading">loading…</div>';
   try {
-    const raw = await fetchText(`/posts/${file}`);
+    const raw = await fetchText(`${BASE}/posts/${file}`);
     const { meta, body } = parseFrontMatter(raw);
     const html = marked.parse(body);
 
@@ -112,7 +114,7 @@ async function loadAbout() {
   const container = document.getElementById('about-content');
   if (container.dataset.loaded) return;
   try {
-    const raw = await fetchText('/about.md');
+    const raw = await fetchText(`${BASE}/about.md`);
     const { meta, body } = parseFrontMatter(raw);
     const html = marked.parse(body);
     container.dataset.loaded = 'true';
