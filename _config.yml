@@ -5,8 +5,8 @@
 
 title: DataLog
 description: A data science blog
-url: ""            # Set to: https://yourusername.github.io
-baseurl: ""        # Set to: /your-repo-name  (if not at root)
+url: "https://shivam-dev-stack.github.io/"            # Set to: https://yourusername.github.io
+baseurl: "dsblog"        # Set to: /your-repo-name  (if not at root)
 
 # Exclude non-web files from Jekyll build
 exclude:

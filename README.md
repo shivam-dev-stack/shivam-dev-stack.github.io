@@ -1,4 +1,4 @@
-# DataLog — GitHub Pages Data Science Blog
+# Shivam-Dev — GitHub Pages Data Science Blog
 
 A ready-to-use, single-page blog template for data scientists. Content is written in Markdown. No build step required.
 
