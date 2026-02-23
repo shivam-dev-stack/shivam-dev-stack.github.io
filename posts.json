@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Understanding Gradient Descent Intuitively",
+    "file": "gradient-descent.md",
+    "date": "2025-01-15",
+    "excerpt": "A visual walkthrough of how gradient descent navigates loss surfaces — without drowning in calculus.",
+    "tags": ["machine learning", "optimization"]
+  },
+  {
+    "title": "Why Your Model Looks Great But Fails in Production",
+    "file": "production-failures.md",
+    "date": "2025-02-03",
+    "excerpt": "Data leakage, distribution shift, and other silent killers. A field guide to debugging real-world ML failures.",
+    "tags": ["mlops", "debugging"]
+  },
+  {
+    "title": "Exploratory Data Analysis With Pandas & Plotly",
+    "file": "eda-pandas-plotly.md",
+    "date": "2025-02-18",
+    "excerpt": "A practical EDA workflow: loading, cleaning, profiling, and visualizing tabular data from scratch.",
+    "tags": ["python", "eda"]
+  }
+]

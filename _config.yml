@@ -1,0 +1,21 @@
+# _config.yml — GitHub Pages configuration
+# ─────────────────────────────────────────
+# This site uses plain HTML/JS — no Jekyll theme required.
+# We use Jekyll only to serve files correctly.
+
+title: DataLog
+description: A data science blog
+url: ""            # Set to: https://yourusername.github.io
+baseurl: ""        # Set to: /your-repo-name  (if not at root)
+
+# Exclude non-web files from Jekyll build
+exclude:
+  - README.md
+  - "*.sh"
+
+# Disable Jekyll processing on the JS/MD files
+# (they are fetched directly by the browser)
+include:
+  - posts.json
+  - posts/
+  - about.md
