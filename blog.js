@@ -1,4 +1,11 @@
-const BASE = '';
+/**
+ * blog.js — DataLog GitHub Pages Engine
+ * ─────────────────────────────────────
+ * Reads posts.json for the post index, then fetches individual .md files.
+ * To add a post: add an entry to posts.json and drop the .md in /posts/
+ */
+
+// ── UTILITIES ─────────────────────────────────────────────────────────────
 
 async function fetchText(url) {
   const res = await fetch(url);
@@ -31,7 +38,7 @@ function formatDate(dateStr) {
 
 // ── ROUTING ───────────────────────────────────────────────────────────────
 
-function showPage(name, postFile) {
+function showPage(name, postFile, updateHash = true) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
 
@@ -41,6 +48,13 @@ function showPage(name, postFile) {
   const navEl = document.getElementById(`nav-${name}`);
   if (navEl) navEl.classList.add('active');
 
+  // Update URL hash
+  if (updateHash) {
+    if (name === 'post' && postFile) window.location.hash = `post/${postFile}`;
+    else if (name === 'about') window.location.hash = 'about';
+    else window.location.hash = '';
+  }
+
   if (name === 'post' && postFile) {
     loadPost(postFile);
     window.scrollTo(0, 0);
@@ -48,18 +62,31 @@ function showPage(name, postFile) {
   if (name === 'about') loadAbout();
 }
 
+// Read hash and navigate to correct page
+function handleHash() {
+  const hash = window.location.hash.slice(1); // remove the #
+  if (hash.startsWith('post/')) {
+    const file = hash.replace('post/', '');
+    showPage('post', file, false);
+  } else if (hash === 'about') {
+    showPage('about', null, false);
+  } else {
+    showPage('home', null, false);
+  }
+}
+
 // ── HOME: POST LIST ───────────────────────────────────────────────────────
 
 async function loadPostList() {
   const container = document.getElementById('posts-list');
   try {
-    const posts = await fetchJSON(`${BASE}/posts.json`);
+    const posts = await fetchJSON('posts.json');
     if (!posts.length) {
       container.innerHTML = '<div class="loading">No posts yet.</div>';
       return;
     }
     container.innerHTML = posts.map(post => `
-      <a class="post-card" onclick="showPage('post','${post.file}'); return false;" href="#">
+      <a class="post-card" href="#post/${post.file}">
         <div>
           <div class="post-meta">
             <span class="post-date">${formatDate(post.date)}</span>
@@ -82,14 +109,9 @@ async function loadPost(file) {
   const container = document.getElementById('post-content');
   container.innerHTML = '<div class="loading">loading…</div>';
   try {
-    const raw = await fetchText(`${BASE}/posts/${file}`);
+    const raw = await fetchText(`posts/${file}`);
     const { meta, body } = parseFrontMatter(raw);
     const html = marked.parse(body);
-
-    // Inside loadPost(), after parsing meta
-    document.title = `${meta.title}`;
-    document.querySelector('meta[name="description"]').setAttribute('content', meta.excerpt || meta.title);
-    document.querySelector('meta[property="og:title"]').setAttribute('content', meta.title);
 
     container.innerHTML = `
       <h1>${meta.title || file.replace('.md','')}</h1>
@@ -110,7 +132,7 @@ async function loadAbout() {
   const container = document.getElementById('about-content');
   if (container.dataset.loaded) return;
   try {
-    const raw = await fetchText(`${BASE}/about.md`);
+    const raw = await fetchText('about.md');
     const { meta, body } = parseFrontMatter(raw);
     const html = marked.parse(body);
     container.dataset.loaded = 'true';
@@ -129,23 +151,7 @@ async function loadAbout() {
   }
 }
 
-// When opening a post
-function showPage(name, postFile) {
-  if (name === 'post') window.location.hash = `post/${postFile}`;
-  else if (name === 'about') window.location.hash = 'about';
-  else window.location.hash = '';
-  // ... rest of function
-}
-
-// On page load, read the hash
-window.addEventListener('load', () => {
-  const hash = window.location.hash.slice(1);
-  if (hash.startsWith('post/')) showPage('post', hash.replace('post/', ''));
-  else if (hash === 'about') showPage('about');
-  else showPage('home');
-});
-
-
+// ── INIT ──────────────────────────────────────────────────────────────────
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -155,4 +161,8 @@ marked.setOptions({
   breaks: true,
 });
 
-loadPostList();
+// Listen for back/forward browser navigation
+window.addEventListener('hashchange', handleHash);
+
+// On first load, read the hash and go to correct page
+loadPostList().then(() => handleHash());
