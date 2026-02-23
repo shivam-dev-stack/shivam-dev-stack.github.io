@@ -3,10 +3,10 @@
 # This site uses plain HTML/JS — no Jekyll theme required.
 # We use Jekyll only to serve files correctly.
 
-title: DataLog
+title: Shivam-Dev's Data Science Blog
 description: A data science blog
 url: "https://shivam-dev-stack.github.io/"            # Set to: https://yourusername.github.io
-baseurl: "dsblog"        # Set to: /your-repo-name  (if not at root)
+baseurl: ""        # Set to: /your-repo-name  (if not at root)
 
 # Exclude non-web files from Jekyll build
 exclude:
