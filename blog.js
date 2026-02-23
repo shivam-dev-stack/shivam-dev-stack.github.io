@@ -89,7 +89,7 @@ async function loadPost(file) {
   const container = document.getElementById('post-content');
   container.innerHTML = '<div class="loading">loading…</div>';
   try {
-    const raw = await fetchText(`posts/${file}`);
+    const raw = await fetchText(`/posts/${file}`);
     const { meta, body } = parseFrontMatter(raw);
     const html = marked.parse(body);
 
@@ -112,7 +112,7 @@ async function loadAbout() {
   const container = document.getElementById('about-content');
   if (container.dataset.loaded) return;
   try {
-    const raw = await fetchText('about.md');
+    const raw = await fetchText('/about.md');
     const { meta, body } = parseFrontMatter(raw);
     const html = marked.parse(body);
     container.dataset.loaded = 'true';
