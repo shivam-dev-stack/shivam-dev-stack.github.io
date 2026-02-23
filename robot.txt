@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivam-dev-stack.github.io/sitemap.xml

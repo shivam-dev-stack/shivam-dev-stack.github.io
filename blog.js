@@ -1,12 +1,3 @@
-/**
- * blog.js — DataLog GitHub Pages Engine
- * ─────────────────────────────────────
- * Reads posts.json for the post index, then fetches individual .md files.
- * To add a post: add an entry to posts.json and drop the .md in /posts/
- */
-
-// ── UTILITIES ─────────────────────────────────────────────────────────────
-
 const BASE = '';
 
 async function fetchText(url) {
@@ -95,6 +86,11 @@ async function loadPost(file) {
     const { meta, body } = parseFrontMatter(raw);
     const html = marked.parse(body);
 
+    // Inside loadPost(), after parsing meta
+    document.title = `${meta.title}`;
+    document.querySelector('meta[name="description"]').setAttribute('content', meta.excerpt || meta.title);
+    document.querySelector('meta[property="og:title"]').setAttribute('content', meta.title);
+
     container.innerHTML = `
       <h1>${meta.title || file.replace('.md','')}</h1>
       <div class="post-meta">
@@ -133,7 +129,23 @@ async function loadAbout() {
   }
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────────
+// When opening a post
+function showPage(name, postFile) {
+  if (name === 'post') window.location.hash = `post/${postFile}`;
+  else if (name === 'about') window.location.hash = 'about';
+  else window.location.hash = '';
+  // ... rest of function
+}
+
+// On page load, read the hash
+window.addEventListener('load', () => {
+  const hash = window.location.hash.slice(1);
+  if (hash.startsWith('post/')) showPage('post', hash.replace('post/', ''));
+  else if (hash === 'about') showPage('about');
+  else showPage('home');
+});
+
+
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
