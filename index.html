@@ -4,223 +4,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Data Science Blog</title>
-  <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <!-- Preload marked.js -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" as="script" />
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <!-- marked.js for markdown parsing -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
-
-  <!-- Basic SEO -->
-<meta name="description" content="A data science blog covering ML, statistics, and Python." />
-<meta name="author" content="Your Name" />
-<meta name="keywords" content="data science, machine learning, python, statistics" />
-
-<!-- Open Graph (for link previews on Twitter, LinkedIn, WhatsApp) -->
-<meta property="og:title" content="A Data Science Blog" />
-<meta property="og:description" content="Notes on ML, statistical thinking, and building with data." />
-<meta property="og:url" content="https://shivam-dev-stack.github.io/" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://shivam-dev-stack.github.io/assets/og-image.png" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@shivamsinghlabs" />
-<meta name="twitter:title" content="A Data Science Blog" />
-<meta name="twitter:description" content="Notes on ML, statistical thinking, and building with data." />
-<meta name="twitter:image" content="https://shivam-dev-stack.github.io/assets/og-image.png" />
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://shivam-dev-stack.github.io/" />
-
+  <meta name="description" content="A data science blog covering ML, statistics, and Python." />
+  <meta name="author" content="Your Name" />
+  <meta name="keywords" content="data science, machine learning, python, statistics" />
+  <meta property="og:title" content="A Data Science Blog" />
+  <meta property="og:description" content="Notes on ML, statistical thinking, and building with data." />
+  <meta property="og:url" content="https://shivam-dev-stack.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://shivam-dev-stack.github.io/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@shivamsinghlabs" />
+  <meta name="twitter:title" content="A Data Science Blog" />
+  <meta name="twitter:description" content="Notes on ML, statistical thinking, and building with data." />
+  <meta name="twitter:image" content="https://shivam-dev-stack.github.io/assets/og-image.png" />
+  <link rel="canonical" href="https://shivam-dev-stack.github.io/" />
   <style>
     :root {
-      --bg: #0d0f0e;
-      --surface: #141716;
-      --surface2: #1c1f1d;
-      --border: #262b28;
-      --accent: #a3e635;        /* lime */
-      --accent2: #34d399;       /* emerald */
-      --text: #e8ede9;
-      --muted: #7d8c82;
-      --tag-bg: #1e2b20;
+      --bg: #0d0f0e; --surface: #141716; --surface2: #1c1f1d;
+      --border: #262b28; --accent: #a3e635; --accent2: #34d399;
+      --text: #e8ede9; --muted: #7d8c82; --tag-bg: #1e2b20;
       --serif: 'DM Serif Display', Georgia, serif;
       --mono: 'DM Mono', monospace;
       --sans: 'Instrument Sans', sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.65;
-      min-height: 100vh;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem;
-      background: rgba(13,15,14,.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: .95rem;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: .04em;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.65; min-height: 100vh; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(13,15,14,.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--mono); font-size: .95rem; color: var(--accent); text-decoration: none; letter-spacing: .04em; }
     .nav-links { display: flex; gap: 1.8rem; }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: .9rem;
-      transition: color .2s;
-    }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
-
-    /* ── PAGES ── */
     .page { display: none; }
     .page.active { display: block; }
-
-    /* ── HERO ── */
-    #hero {
-      padding: 6rem 2rem 4rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .eyebrow {
-      font-family: var(--mono);
-      font-size: .78rem;
-      color: var(--accent);
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(2.6rem, 6vw, 4.5rem);
-      line-height: 1.1;
-      margin-bottom: 1.4rem;
-    }
+    #hero { padding: 6rem 2rem 4rem; position: relative; max-width: 860px; margin: 0 auto; }
+    #hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(163,230,53,.08), transparent 60%); pointer-events: none; }
+    .eyebrow { font-family: var(--mono); font-size: .78rem; color: var(--accent); letter-spacing: .15em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .hero-title { font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.4rem; }
     .hero-title em { font-style: italic; color: var(--accent2); }
-    .hero-sub {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 540px;
-      margin-bottom: 2.4rem;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .65rem 1.4rem;
-      border-radius: 6px;
-      font-size: .9rem;
-      font-family: var(--sans);
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all .2s;
-      border: none;
-    }
+    .hero-sub { color: var(--muted); font-size: 1.1rem; max-width: 540px; margin-bottom: 2.4rem; }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .65rem 1.4rem; border-radius: 6px; font-size: .9rem; font-family: var(--sans); font-weight: 600; cursor: pointer; text-decoration: none; transition: all .2s; border: none; }
     .btn-primary { background: var(--accent); color: #0d0f0e; }
     .btn-primary:hover { background: #bef264; }
     .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── SECTION LABEL ── */
-    .section-label {
-      font-family: var(--mono);
-      font-size: .74rem;
-      color: var(--muted);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      display: flex; align-items: center; gap: .75rem;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── BLOG LIST ── */
+    .section-label { font-family: var(--mono); font-size: .74rem; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; display: flex; align-items: center; gap: .75rem; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     #home-page { padding: 0 2rem 5rem; max-width: 860px; margin: 0 auto; }
-
-    .posts-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 1.6rem;
-    }
-    .post-card {
-      background: var(--surface);
-      padding: 1.6rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: .5rem 1.5rem;
-      align-items: start;
-      cursor: pointer;
-      transition: background .2s;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-    }
+    .posts-grid { display: grid; grid-template-columns: 1fr; gap: 1px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-top: 1.6rem; }
+    .post-card { background: var(--surface); padding: 1.6rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: .5rem 1.5rem; align-items: start; cursor: pointer; transition: background .2s; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; }
     .post-card:last-child { border-bottom: none; }
     .post-card:hover { background: var(--surface2); }
     .post-card:hover .post-title { color: var(--accent); }
-
     .post-meta { display: flex; align-items: center; gap: .75rem; margin-bottom: .4rem; }
     .post-date { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
-    .post-tag {
-      font-size: .72rem;
-      padding: .2rem .55rem;
-      border-radius: 4px;
-      background: var(--tag-bg);
-      color: var(--accent2);
-      font-family: var(--mono);
-    }
-    .post-title {
-      font-family: var(--serif);
-      font-size: 1.25rem;
-      line-height: 1.3;
-      transition: color .2s;
-    }
+    .post-tag { font-size: .72rem; padding: .2rem .55rem; border-radius: 4px; background: var(--tag-bg); color: var(--accent2); font-family: var(--mono); }
+    .post-title { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; transition: color .2s; }
     .post-excerpt { font-size: .9rem; color: var(--muted); margin-top: .35rem; }
     .post-arrow { color: var(--muted); font-size: 1.2rem; align-self: center; transition: transform .2s, color .2s; }
     .post-card:hover .post-arrow { transform: translateX(4px); color: var(--accent); }
-
-    /* ── ABOUT PAGE ── */
-    #about-page {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
+    #about-page { max-width: 720px; margin: 0 auto; padding: 5rem 2rem; }
     .about-header { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: 3rem; flex-wrap: wrap; }
-    .about-avatar {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif);
-      font-size: 2rem;
-      color: #0d0f0e;
-    }
+    .about-avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 2rem; color: #0d0f0e; }
     .about-intro h1 { font-family: var(--serif); font-size: 2.2rem; margin-bottom: .4rem; }
     .about-intro .role { color: var(--accent); font-family: var(--mono); font-size: .85rem; letter-spacing: .08em; }
     .about-body { color: var(--muted); line-height: 1.85; }
@@ -228,93 +79,47 @@
     .about-body strong { color: var(--text); }
     .about-body a { color: var(--accent2); text-decoration: none; }
     .about-body a:hover { text-decoration: underline; }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: .6rem;
-      margin-top: 1.2rem;
-    }
-    .skill-chip {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: .5rem .8rem;
-      font-family: var(--mono);
-      font-size: .78rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* ── BLOG POST PAGE ── */
-    #post-page {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 3rem 2rem 6rem;
-    }
-    .back-btn {
-      display: inline-flex; align-items: center; gap: .4rem;
-      font-size: .85rem; color: var(--muted);
-      cursor: pointer; background: none; border: none;
-      font-family: var(--sans);
-      margin-bottom: 2.5rem;
-      transition: color .2s;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: .6rem; margin-top: 1.2rem; }
+    .skill-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .5rem .8rem; font-family: var(--mono); font-size: .78rem; color: var(--muted); text-align: center; }
+    #projects-page { max-width: 720px; margin: 0 auto; padding: 5rem 2rem; }
+    .projects-header { display: flex; gap: 2.5rem; align-items: flex-start; margin-bottom: 3rem; flex-wrap: wrap; }
+    .projects-avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--accent2), var(--accent)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 2rem; color: #0d0f0e; }
+    .projects-intro h1 { font-family: var(--serif); font-size: 2.2rem; margin-bottom: .4rem; }
+    .projects-intro .role { color: var(--accent); font-family: var(--mono); font-size: .85rem; letter-spacing: .08em; }
+    .projects-body { color: var(--muted); line-height: 1.85; }
+    .projects-body p { margin-bottom: 1.1rem; }
+    .projects-body strong { color: var(--text); }
+    .projects-body a { color: var(--accent2); text-decoration: none; }
+    .projects-body a:hover { text-decoration: underline; }
+    .projects-body h2 { font-family: var(--serif); font-size: 1.6rem; margin: 2rem 0 .8rem; color: var(--text); }
+    .projects-body h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 .5rem; color: var(--text); }
+    .projects-body ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .projects-body li { margin-bottom: .3rem; }
+    #post-page { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+    .back-btn { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; color: var(--muted); cursor: pointer; background: none; border: none; font-family: var(--sans); margin-bottom: 2.5rem; transition: color .2s; text-decoration: none; }
     .back-btn:hover { color: var(--accent); }
-
     #post-content h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; margin-bottom: .5rem; }
     #post-content .post-meta { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
     #post-content h2 { font-family: var(--serif); font-size: 1.6rem; margin: 2.2rem 0 .8rem; color: var(--text); }
     #post-content h3 { font-size: 1.1rem; font-weight: 600; margin: 1.8rem 0 .6rem; color: var(--text); }
     #post-content p { color: var(--muted); margin-bottom: 1.1rem; }
     #post-content a { color: var(--accent2); }
-    #post-content code {
-      font-family: var(--mono);
-      font-size: .85em;
-      background: var(--surface2);
-      padding: .15em .4em;
-      border-radius: 4px;
-      color: var(--accent);
-    }
-    #post-content pre {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.2rem 1.4rem;
-      overflow-x: auto;
-      margin: 1.5rem 0;
-    }
+    #post-content code { font-family: var(--mono); font-size: .85em; background: var(--surface2); padding: .15em .4em; border-radius: 4px; color: var(--accent); }
+    #post-content pre { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.4rem; overflow-x: auto; margin: 1.5rem 0; }
     #post-content pre code { background: none; padding: 0; color: var(--accent2); }
     #post-content ul, #post-content ol { color: var(--muted); padding-left: 1.5rem; margin-bottom: 1.1rem; }
     #post-content li { margin-bottom: .3rem; }
-    #post-content blockquote {
-      border-left: 3px solid var(--accent);
-      padding-left: 1.2rem;
-      margin: 1.5rem 0;
-      color: var(--muted);
-      font-style: italic;
-    }
+    #post-content blockquote { border-left: 3px solid var(--accent); padding-left: 1.2rem; margin: 1.5rem 0; color: var(--muted); font-style: italic; }
     #post-content img { max-width: 100%; border-radius: 8px; margin: 1.5rem 0; }
     #post-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
     #post-content th, #post-content td { padding: .6rem 1rem; border: 1px solid var(--border); font-size: .9rem; }
     #post-content th { background: var(--surface2); color: var(--text); }
     #post-content td { color: var(--muted); }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      font-family: var(--mono);
-      font-size: .78rem;
-      color: var(--muted);
-    }
-
-    /* ── LOADING ── */
+    footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: .78rem; color: var(--muted); }
     .loading { text-align: center; color: var(--muted); padding: 3rem; font-family: var(--mono); font-size: .85rem; }
-
     @media (max-width: 600px) {
       nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
       #hero, #home-page { padding-left: 1rem; padding-right: 1rem; }
       .post-card { grid-template-columns: 1fr; }
       .post-arrow { display: none; }
@@ -324,15 +129,16 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo" onclick="showPage('home')">&lt;Shivam-Dev /&gt;</a>
+  <a href="#" class="nav-logo">&lt;Shivam-Dev /&gt;</a>
   <div class="nav-links">
-    <a href="#" id="nav-home" class="active" onclick="showPage('home'); return false;">Home</a>
-    <a href="#" id="nav-about" onclick="showPage('about'); return false;">About</a>
+    <a href="#"         id="nav-home"     class="active">Home</a>
+    <a href="#about"    id="nav-about">About</a>
+    <a href="#projects" id="nav-projects">Projects</a>
     <a href="https://github.com/shivam-dev-stack" target="_blank">GitHub ↗</a>
   </div>
 </nav>
 
-<!-- ── HOME PAGE ── -->
+<!-- HOME -->
 <div id="home-page" class="page active">
   <div id="hero">
     <div class="eyebrow">// data science blog</div>
@@ -340,14 +146,11 @@
     <p class="hero-sub">Notes on machine learning, statistical thinking, and building things with data. Written for clarity, not clout.</p>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;">
       <button class="btn btn-primary" onclick="document.getElementById('posts-section').scrollIntoView({behavior:'smooth'})">Read posts ↓</button>
-      <button class="btn btn-ghost" onclick="showPage('about')">About me</button>
+      <a href="#about" class="btn btn-ghost">About me</a>
     </div>
   </div>
-
   <div id="posts-section">
-    <div class="section-label" style="padding: 0 2rem; max-width: 860px; margin: 0 auto 0;">
-      Latest Posts
-    </div>
+    <div class="section-label" style="padding: 0 2rem; max-width: 860px; margin: 0 auto 0;">Latest Posts</div>
     <div style="max-width:860px;margin:0 auto;padding:0 2rem;">
       <div id="posts-list" class="posts-grid">
         <div class="loading">loading posts…</div>
@@ -356,24 +159,23 @@
   </div>
 </div>
 
-<!-- ── ABOUT PAGE ── -->
+<!-- ABOUT -->
 <div id="about-page" class="page">
-  <div id="about-content">
-    <div class="loading">loading…</div>
-  </div>
+  <div id="about-content"><div class="loading">loading…</div></div>
 </div>
 
-<!-- ── POST PAGE ── -->
+<!-- PROJECTS -->
+<div id="projects-page" class="page">
+  <div id="projects-content"><div class="loading">loading…</div></div>
+</div>
+
+<!-- POST -->
 <div id="post-page" class="page">
-  <button class="back-btn" onclick="showPage('home')">← All posts</button>
-  <article id="post-content">
-    <div class="loading">loading post…</div>
-  </article>
+  <a href="#" class="back-btn">← All posts</a>
+  <article id="post-content"><div class="loading">loading post…</div></article>
 </div>
 
-<footer>
-  built with GitHub Pages · <span id="year"></span>
-</footer>
+<footer>Shivam Pratap Singh · <span id="year"></span></footer>
 
 <script src="blog.js"></script>
 </body>
